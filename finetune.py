@@ -10,6 +10,9 @@ assert (
     "LlamaTokenizer" in transformers._import_structure["models.llama"]
 ), "LLaMA is now in HuggingFace's main branch.\nPlease reinstall it: pip uninstall transformers && pip install git+https://github.com/huggingface/transformers.git"
 from transformers import LlamaForCausalLM, LlamaTokenizer
+from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer, BloomForCausalLM
+from transformers.models.opt.modeling_opt import OPTDecoderLayer
+
 from peft import (
     prepare_model_for_int8_training,
     LoraConfig,
@@ -35,21 +38,34 @@ TARGET_MODULES = [
 ]
 DATA_PATH = "alpaca_data_cleaned.json"
 
-device_map = "auto"
-world_size = int(os.environ.get("WORLD_SIZE", 1))
-ddp = world_size != 1
-if ddp:
-    device_map = {"": int(os.environ.get("LOCAL_RANK") or 0)}
-    GRADIENT_ACCUMULATION_STEPS = GRADIENT_ACCUMULATION_STEPS // world_size
+#model = LlamaForCausalLM.from_pretrained(
+#    "decapoda-research/llama-7b-hf",
+#    load_in_8bit=True,
+#    device_map="auto",
+#)
 
-model = LlamaForCausalLM.from_pretrained(
-    "decapoda-research/llama-7b-hf",
+#tokenizer = LlamaTokenizer.from_pretrained(
+#    "decapoda-research/llama-7b-hf", add_eos_token=True
+#)
+
+#model = AutoModelForCausalLM.from_pretrained(
+    #'bigscience/bloom',
+    #device_map='auto',
+    #load_in_8bit=True,
+    #)
+
+model = BloomForCausalLM.from_pretrained( #AutoModelForCausalLM.from_pretrained(
+    #'bigscience/bloom',
+    "bigscience/bloom-560m",
+    # "bigscience/bloom-1b1",
+    # "bigscience/bloom-1b7",
+    # "bigscience/bloom-3b",
+    # "bigscience/bloom-7b1",
+    # "bigscience/bloom", # for 176B parameters
+    device_map='auto',
     load_in_8bit=True,
-    device_map=device_map,
 )
-tokenizer = LlamaTokenizer.from_pretrained(
-    "decapoda-research/llama-7b-hf", add_eos_token=True
-)
+tokenizer = AutoTokenizer.from_pretrained('bigscience/bloom')
 
 model = prepare_model_for_int8_training(model)
 
