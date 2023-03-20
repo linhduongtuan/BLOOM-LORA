@@ -1,6 +1,5 @@
 import os
 
-# os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import torch
 import torch.nn as nn
 import bitsandbytes as bnb
@@ -11,9 +10,6 @@ assert (
     "LlamaTokenizer" in transformers._import_structure["models.llama"]
 ), "LLaMA is now in HuggingFace's main branch.\nPlease reinstall it: pip uninstall transformers && pip install git+https://github.com/huggingface/transformers.git"
 from transformers import LlamaForCausalLM, LlamaTokenizer
-from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer, BloomForCausalLM
-from transformers.models.opt.modeling_opt import OPTDecoderLayer
-
 from peft import (
     prepare_model_for_int8_training,
     LoraConfig,
@@ -39,34 +35,21 @@ TARGET_MODULES = [
 ]
 DATA_PATH = "alpaca_data_cleaned.json"
 
-#model = LlamaForCausalLM.from_pretrained(
-#    "decapoda-research/llama-7b-hf",
-#    load_in_8bit=True,
-#    device_map="auto",
-#)
+device_map = "auto"
+world_size = int(os.environ.get("WORLD_SIZE", 1))
+ddp = world_size != 1
+if ddp:
+    device_map = {"": int(os.environ.get("LOCAL_RANK") or 0)}
+    GRADIENT_ACCUMULATION_STEPS = GRADIENT_ACCUMULATION_STEPS // world_size
 
-#tokenizer = LlamaTokenizer.from_pretrained(
-#    "decapoda-research/llama-7b-hf", add_eos_token=True
-#)
-
-#model = AutoModelForCausalLM.from_pretrained(
-    #'bigscience/bloom',
-    #device_map='auto',
-    #load_in_8bit=True,
-    #)
-
-model = BloomForCausalLM.from_pretrained( #AutoModelForCausalLM.from_pretrained(
-    #'bigscience/bloom',
-    "bigscience/bloom-560m",
-    # "bigscience/bloom-1b1",
-    # "bigscience/bloom-1b7",
-    # "bigscience/bloom-3b",
-    # "bigscience/bloom-7b1",
-    # "bigscience/bloom", # for 176B parameters
-    device_map='auto',
+model = LlamaForCausalLM.from_pretrained(
+    "decapoda-research/llama-7b-hf",
     load_in_8bit=True,
+    device_map=device_map,
 )
-tokenizer = AutoTokenizer.from_pretrained('bigscience/bloom')
+tokenizer = LlamaTokenizer.from_pretrained(
+    "decapoda-research/llama-7b-hf", add_eos_token=True
+)
 
 model = prepare_model_for_int8_training(model)
 
@@ -127,8 +110,60 @@ def tokenize(prompt):
     }
 
 
-train_data = train_data.shuffle().map(lambda x: tokenize(generate_prompt(x)))
-val_data = val_data.shuffle().map(lambda x: tokenize(generate_prompt(x)))
+def generate_and_tokenize_prompt(data_point):
+    # This function masks out the labels for the input,
+    # so that our loss is computed only on the response.
+    user_prompt = (
+        (
+            f"""Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
+
+### Instruction:
+{data_point["instruction"]}
+
+### Input:
+{data_point["input"]}
+
+### Response:
+"""
+        )
+        if data_point["input"]
+        else (
+            f"""Below is an instruction that describes a task. Write a response that appropriately completes the request.
+
+### Instruction:
+{data_point["instruction"]}
+
+### Response:
+"""
+        )
+    )
+    len_user_prompt_tokens = (
+        len(
+            tokenizer(
+                user_prompt,
+                truncation=True,
+                max_length=CUTOFF_LEN + 1,
+                padding="max_length",
+            )["input_ids"]
+        )
+        - 1
+    )  # no eos token
+    full_tokens = tokenizer(
+        user_prompt + data_point["output"],
+        truncation=True,
+        max_length=CUTOFF_LEN + 1,
+        padding="max_length",
+    )["input_ids"][:-1]
+    return {
+        "input_ids": full_tokens,
+        "labels": [-100] * len_user_prompt_tokens
+        + full_tokens[len_user_prompt_tokens:],
+        "attention_mask": [1] * (len(full_tokens)),
+    }
+
+
+train_data = train_data.shuffle().map(generate_and_tokenize_prompt)
+val_data = val_data.shuffle().map(generate_and_tokenize_prompt)
 
 trainer = transformers.Trainer(
     model=model,
@@ -149,6 +184,7 @@ trainer = transformers.Trainer(
         output_dir="lora-alpaca",
         save_total_limit=3,
         load_best_model_at_end=True,
+        ddp_find_unused_parameters=False if ddp else None,
     ),
     data_collator=transformers.DataCollatorForLanguageModeling(tokenizer, mlm=False),
 )
@@ -158,6 +194,9 @@ old_state_dict = model.state_dict
 model.state_dict = (
     lambda self, *_, **__: get_peft_model_state_dict(self, old_state_dict())
 ).__get__(model, type(model))
+
+if torch.__version__ >= "2":
+    model = torch.compile(model)
 
 trainer.train()
 
