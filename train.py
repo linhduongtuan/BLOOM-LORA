@@ -15,6 +15,13 @@ from peft import (
     get_peft_model_state_dict,
 )
 
+from huggingface_hub import login
+
+login(
+  token="", # ADD YOUR TOKEN HERE
+  add_to_git_credential=True
+)
+
 
 # optimized for RTX 4090. for larger GPUs, increase some of these?
 MICRO_BATCH_SIZE = 4  # this could actually be 5 but i like powers of 2
@@ -36,6 +43,8 @@ model_name = 'bigscience/bloom-560m'
 #model_name = 'bigscience/bloom-3b'
 #model_name = 'bigscience/bloom-7b1'
 #model_name = 'bigscience/bloom' # for 176B parameters
+
+repository_id = "bloom-{model_name}"
 
 device_map = "auto"
 world_size = int(os.environ.get("WORLD_SIZE", 1))
@@ -169,6 +178,7 @@ trainer = transformers.Trainer(
     train_dataset=train_data,
     eval_dataset=val_data,
     args=transformers.TrainingArguments(
+        output_dir=repository_id,
         per_device_train_batch_size=MICRO_BATCH_SIZE,
         gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
         warmup_steps=100,
@@ -184,8 +194,14 @@ trainer = transformers.Trainer(
         save_total_limit=3,
         load_best_model_at_end=True if VAL_SET_SIZE > 0 else False,
         ddp_find_unused_parameters=False if ddp else None,
+        torch_compile=True, # optimizations
+        optim="adamw_torch_fused", # improved optimizer
+        # push to hub parameters
         report_to='wandb',
-        torch_compile=True,
+        push_to_hub=True,
+        hub_strategy="every_save",
+        hub_model_id=repository_id,
+        hub_token=HfFolder.get_token(),
     ),
     data_collator=transformers.DataCollatorForLanguageModeling(tokenizer, mlm=False),
 )
