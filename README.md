@@ -71,7 +71,19 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 ### Example outputs
 
+
+**BLOOM-560M-LoRA**:
+
+
+
+
+
+
+
+
 **Instruction**: Tell me about alpacas.
+
+**BLOOM-560M-LoRA**:
 
 **Alpaca-LoRA**: Alpacas are members of the camelid family and are native to the Andes Mountains of South America. They are known for their soft, luxurious fleece, which is used to make clothing, blankets, and other items. Alpacas are herbivores and graze on grasses and other plants. They are social animals and live in herds of up to 20 individuals.
 
@@ -83,6 +95,8 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 **Instruction**: Tell me about the president of Mexico in 2019.
 
+**BLOOM-560M-LoRA**:
+
 **Alpaca-LoRA**: The president of Mexico in 2019 was Andrés Manuel López Obrador, who took office on December 1, 2018. He is a member of the National Regeneration Movement (MORENA) political party and is the first left-wing president of Mexico since 1946. He is known for his anti-corruption and anti-neoliberal policies, as well as his commitment to improving the living conditions of the Mexican people.
 
 **Stanford Alpaca**: In 2019, Andres Manuel Lopez Obrador was sworn in as President of Mexico. He is the country’s 58th president and the first from the left-wing Morena party. He was elected in 2018 on a promise to combat corruption and reduce poverty and has faced criticism for his handling of the economy, crime and the country’s relationship with the United States. He is also known for his ambitious social welfare programs and has been praised for raising the minimum wage and providing aid to low-income families. He is seen as a champion of democracy and human rights in Mexico.
@@ -93,6 +107,8 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 **Instruction**: Tell me about the king of France in 2019.
 
+**BLOOM-560M-LoRA**:
+
 **Alpaca-LoRA**: The King of France in 2019 is Emmanuel Macron, who was elected in May 2017. He is the youngest president in the history of the Fifth Republic and the first president to be born after World War II. He is also the first president to have never held elected office before.
 
 **Stanford Alpaca**: In 2019, the King of France was Emmanuel Macron. He was sworn in as President of France on May 14, 2017, and has been leading the country ever since. He is a member of the centrist La République En Marche! Party. He is known for his reformist agenda and has faced a number of protests from both the right and left of the political spectrum. He is the youngest French president in history.
@@ -102,6 +118,8 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 ---
 
 **Instruction**: List all Canadian provinces in alphabetical order.
+
+**BLOOM-560M-LoRA**:
 
 **Alpaca-LoRA**: Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland and Labrador, Nova Scotia, Ontario, Prince Edward Island, Quebec, Saskatchewan
 
@@ -126,6 +144,8 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 ---
 
 **Instruction**: Write a Python program that prints the first 10 Fibonacci numbers.
+
+**BLOOM-560M-LoRA**:
 
 **Alpaca-LoRA**:
 
@@ -181,6 +201,8 @@ for i in range(2,10):
 
 **Instruction**: Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.
 
+**BLOOM-560M-LoRA**:
+
 **Alpaca-LoRA**:
 
 ```python
@@ -229,6 +251,8 @@ for (let i = 1; i <= 100; i++) {
 
 **Instruction**: Tell me five words that rhyme with 'shock'.
 
+**BLOOM-560M-LoRA**:
+
 **Alpaca-LoRA**: Flock, lock, rock, stock, and sock.
 
 **Stanford Alpaca**: Five words that rhyme with shock are: rock, pop, shock, cook, and snock.
@@ -244,6 +268,8 @@ for (let i = 1; i <= 100; i++) {
 ---
 
 **Instruction**: Translate the sentence 'I have no mouth but I must scream' into Spanish.
+
+**BLOOM-560M-LoRA**:
 
 **Alpaca-LoRA**: No tengo boca pero tengo que gritar.
 
