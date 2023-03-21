@@ -30,12 +30,15 @@ LORA_R = 8
 LORA_ALPHA = 16
 LORA_DROPOUT = 0.05
 VAL_SET_SIZE = 2000
-#TARGET_MODULES = [
-#    "q_proj",
-#    "v_proj",
-#]
 DATA_PATH = "alpaca_data_cleaned.json"
 OUTPUT_DIR = "BLOOM-alpaca"
+
+## Choose a model to finetune 
+model_name = 'bigscience/bloom-560m'
+#model_name = 'bigscience/bloom-1b1'
+#model_name = 'bigscience/bloom-3b'
+#model_name = 'bigscience/bloom-7b1'
+#model_name = 'bigscience/bloom' # for 176B parameters
 
 device_map = "auto"
 world_size = int(os.environ.get("WORLD_SIZE", 1))
@@ -44,33 +47,10 @@ if ddp:
     device_map = {"": int(os.environ.get("LOCAL_RANK") or 0)}
     GRADIENT_ACCUMULATION_STEPS = GRADIENT_ACCUMULATION_STEPS // world_size
 
-
-#model = LlamaForCausalLM.from_pretrained(
-#    "decapoda-research/llama-7b-hf",
-#    load_in_8bit=True,
-#    device_map="auto",
-#)
-
-#tokenizer = LlamaTokenizer.from_pretrained(
-#    "decapoda-research/llama-7b-hf", add_eos_token=True
-#)
-
-#model = AutoModelForCausalLM.from_pretrained(
-    #'bigscience/bloom',
-    #device_map='auto',
-    #load_in_8bit=True,
-    #)
-
-model = BloomForCausalLM.from_pretrained( #AutoModelForCausalLM.from_pretrained(
-    #'bigscience/bloom',
-    "bigscience/bloom-560m",
-    # "bigscience/bloom-1b1",
-    # "bigscience/bloom-1b7",
-    # "bigscience/bloom-3b",
-    # "bigscience/bloom-7b1",
-    # "bigscience/bloom", # for 176B parameters
+model = BloomForCausalLM.from_pretrained( 
+    model_name,
     device_map='auto',
-    #load_in_8bit=True,
+    load_in_8bit=True,
 )
 tokenizer = BloomTokenizerFast.from_pretrained('bigscience/bloom')
 #tokenizer = AutoTokenizer.from_pretrained('bigscience/bloom')
