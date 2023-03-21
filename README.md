@@ -1,23 +1,27 @@
 ![alt text](https://huggingface.co/blog/assets/86_bloom_megatron_deepspeed/bloom-banner.png)
 ## 🌲🤏 BLOOM-LoRA: Low-Rank LLaMA Instruct-Tuning
 
-**Try the pretrained model out on Colab [here](https://colab.research.google.com/drive/1eWAmesrW99p7e1nah5bipn0zikMb8XYC)!**
+**Why do we try to finetune these BLOOM models? The major reason is the licence of LLaMA, while the BLOOM licence seems to be more relax!
 
-_**Update 2023-03-19:** weights have been updated with cleaned data and prompts masked out in the loss. This should reduce the number of template artifacts in outputs._
+**We try to reimplemt BLOOM-LoRA using a variety of sources such as [the original LLaMA](https://github.com/facebookresearch/llama), [Stanford-Alpaca](https://github.com/tatsu-lab/stanford_alpaca), [Alpaca-LoRA](https://github.com/tloen/alpaca-lora), [BLOOMZ](https://github.com/NouamaneTazi/bloomz.cpp), and a name to few.
+
+**Try the pretrained model out on Colab [here](https://colab.research.google.com/drive/1LY5Ds6qyr_Drpp9WSdt-ZEMvvrFICdEx#scrollTo=VucO3HSMoJkz)!**
+
+_**Update 2023-03-21:** weights have been updated with cleaned data and prompts masked out in the loss. This should reduce the number of template artifacts in outputs._
 
 This repository contains code for reproducing the [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) results using [low-rank adaptation (LoRA)](https://arxiv.org/pdf/2106.09685.pdf).
 We provide an Instruct model of similar quality to `text-davinci-003` that can run [on a Raspberry Pi](https://twitter.com/miolini/status/1634982361757790209) (for research),
-and the code can be easily extended to the `13b`, `30b`, and `65b` models.
+and the code can be easily extended to the `1b1`, `3b`, 7b1, and `175b` models.
 
-In addition to the training code, which runs within five hours on a single RTX 4090,
+In addition to the training code, which runs within five hours on a single RTX 4090, and A100
 we publish a script for downloading and inference on the foundation model and LoRA,
-as well as the resulting [LoRA weights themselves](https://huggingface.co/tloen/alpaca-lora-7b/tree/main).
+as well as the resulting [LoRA weights themselves](https://huggingface.co/linhduongtuan/bloom-lora-560m/tree/main).
 To fine-tune cheaply and efficiently, we use Hugging Face's [PEFT](https://github.com/huggingface/peft)
 as well as Tim Dettmers' [bitsandbytes](https://github.com/TimDettmers/bitsandbytes).
 
 Without hyperparameter tuning or validation-based checkpointing, the LoRA model produces outputs comparable to the Stanford Alpaca model. (Please see the outputs included below.) Further tuning might be able to achieve better performance; I invite interested users to give it a try and report their results.
 
-For discussion and support, users have created a dedicated Discord server [here](https://discord.gg/prbq284xX5).
+For discussion and support, users have created a dedicated Twitter server [here](https://twitter.com/DuongTuanLinh1).
 
 ### Setup
 
@@ -33,7 +37,8 @@ pip install -r requirements.txt
 
 This file reads the foundation model from the Hugging Face model hub and the LoRA weights from `tloen/alpaca-lora-7b`, and runs a Gradio interface for inference on a specified input. Users should treat this as example code for the use of the model, and modify it as needed.
 
-### Training (`finetune.py`)
+### If you want to finetune LLaMA, please use (`finetune.py`) for the original [Alpaca-LoRA](https://github.com/tloen/alpaca-lora) to train these models
+### Otherwise, using ('train.py') for our BLOOM-LoRA
 
 This file contains a straightforward application of PEFT to the LLaMA model,
 as well as some code related to prompt construction and tokenization.
