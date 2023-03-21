@@ -1,4 +1,5 @@
-## 🦙🌲🤏 Alpaca-LoRA: Low-Rank LLaMA Instruct-Tuning
+![alt text](https://huggingface.co/blog/assets/86_bloom_megatron_deepspeed/bloom-banner.png)
+## 🌲🤏 BLOOM-LoRA: Low-Rank LLaMA Instruct-Tuning
 
 **Try the pretrained model out on Colab [here](https://colab.research.google.com/drive/1eWAmesrW99p7e1nah5bipn0zikMb8XYC)!**
 
