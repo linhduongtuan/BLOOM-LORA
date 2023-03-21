@@ -6,10 +6,7 @@ import torch.nn as nn
 #import bitsandbytes as bnb
 from datasets import load_dataset
 import transformers
-
-assert (
-    "LlamaTokenizer" in transformers._import_structure["models.llama"]
-), "LLaMA is now in HuggingFace's main branch.\nPlease reinstall it: pip uninstall transformers && pip install git+https://github.com/huggingface/transformers.git"
+from transformers import BloomForCausalLM, BloomTokenizerFast
 
 from peft import (
     prepare_model_for_int8_training,
@@ -17,7 +14,7 @@ from peft import (
     get_peft_model,
     get_peft_model_state_dict,
 )
-from transformers import BloomForCausalLM, BloomTokenizerFast, AutoTokenizer 
+
 
 # optimized for RTX 4090. for larger GPUs, increase some of these?
 MICRO_BATCH_SIZE = 4  # this could actually be 5 but i like powers of 2
