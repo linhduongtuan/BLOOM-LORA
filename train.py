@@ -219,4 +219,7 @@ trainer.train(resume_from_checkpoint = True)
 
 model.save_pretrained(OUTPUT_DIR)
 
+trainer.create_model_card()
+trainer.push_to_hub()
+
 print("\n If there's a warning about missing keys above, please disregard :)")
