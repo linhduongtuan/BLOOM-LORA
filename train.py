@@ -185,6 +185,7 @@ trainer = transformers.Trainer(
         load_best_model_at_end=True if VAL_SET_SIZE > 0 else False,
         ddp_find_unused_parameters=False if ddp else None,
         report_to='wandb',
+        torch_compile=True,
     ),
     data_collator=transformers.DataCollatorForLanguageModeling(tokenizer, mlm=False),
 )
