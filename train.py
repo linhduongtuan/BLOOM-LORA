@@ -15,7 +15,7 @@ from peft import (
     get_peft_model_state_dict,
 )
 
-from huggingface_hub import login
+from huggingface_hub import login, HfFolder
 
 login(
   token="", # ADD YOUR TOKEN HERE
