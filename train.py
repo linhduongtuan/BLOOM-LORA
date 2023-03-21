@@ -178,7 +178,6 @@ trainer = transformers.Trainer(
     train_dataset=train_data,
     eval_dataset=val_data,
     args=transformers.TrainingArguments(
-        output_dir=repository_id,
         per_device_train_batch_size=MICRO_BATCH_SIZE,
         gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
         warmup_steps=100,
@@ -190,7 +189,7 @@ trainer = transformers.Trainer(
         save_strategy="steps",
         eval_steps=200 if VAL_SET_SIZE > 0 else None,
         save_steps=200,
-        output_dir=OUTPUT_DIR,
+        output_dir=OUTPUT_DIR, #output_dir=repository_id,
         save_total_limit=3,
         load_best_model_at_end=True if VAL_SET_SIZE > 0 else False,
         ddp_find_unused_parameters=False if ddp else None,
