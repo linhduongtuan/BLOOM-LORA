@@ -6,6 +6,7 @@ import torch.nn as nn
 #import bitsandbytes as bnb
 from datasets import load_dataset
 import transformers
+from transformers import Trainer, TrainingArguments
 from transformers import BloomForCausalLM, BloomTokenizerFast
 
 from peft import (
@@ -173,11 +174,11 @@ else:
     train_data = data['train'].shuffle().map(generate_and_tokenize_prompt)
     val_data = None
 
-trainer = transformers.Trainer(
+trainer = Trainer(
     model=model,
     train_dataset=train_data,
     eval_dataset=val_data,
-    args=transformers.TrainingArguments(
+    args=TrainingArguments(
         per_device_train_batch_size=MICRO_BATCH_SIZE,
         gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
         warmup_steps=100,
