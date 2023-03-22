@@ -3,20 +3,14 @@ from peft import PeftModel
 import transformers
 import gradio as gr
 
-assert (
-    "LlamaTokenizer" in transformers._import_structure["models.llama"]
-), "LLaMA is now in HuggingFace's main branch.\nPlease reinstall it: pip uninstall transformers && pip install git+https://github.com/huggingface/transformers.git"
-from transformers import LlamaTokenizer, LlamaForCausalLM, GenerationConfig
-from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer, BloomForCausalLM
+from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer, BloomForCausalLM, GenerationConfig
 from transformers.models.opt.modeling_opt import OPTDecoderLayer
 
 tokenizer = AutoTokenizer.from_pretrained('bigscience/bloom')
-#tokenizer = LlamaTokenizer.from_pretrained("decapoda-research/llama-7b-hf")
 
 BASE_MODEL = "bigscience/bloom-560m"
-#BASE_MODEL = "decapoda-research/llama-7b-hf"
+
 LORA_WEIGHTS = "XXX/bloom-560m-lora"
-#LORA_WEIGHTS = "tloen/alpaca-lora-7b"
 
 if torch.cuda.is_available():
     device = "cuda"
@@ -139,8 +133,8 @@ gr.Interface(
             label="Output",
         )
     ],
-    title="🦙🌲 Alpaca-LoRA",
-    description="Alpaca-LoRA is a 7B-parameter LLaMA model finetuned to follow instructions. It is trained on the [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) dataset and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/tloen/alpaca-lora).",
+    title="🌲 🌲 🌲 BLOOM-LoRA",
+    description="BLOOM-LoRA is a 560M-parameter BLOOM model finetuned to follow instructions. It is trained on the [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) dataset and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/tloen/alpaca-lora).",
 ).launch()
 
 # Old testing code follows.
