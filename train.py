@@ -24,7 +24,7 @@ login(
 )
 
 
-# optimized for RTX 4090. for larger GPUs, increase some of these?
+# optimized for RTX 3090 and A100. For larger GPUs, increase some of these?
 MICRO_BATCH_SIZE = 4  # this could actually be 5 but i like powers of 2
 BATCH_SIZE = 128
 GRADIENT_ACCUMULATION_STEPS = BATCH_SIZE // MICRO_BATCH_SIZE
@@ -60,11 +60,10 @@ model = BloomForCausalLM.from_pretrained(
     load_in_8bit=True,
 )
 tokenizer = BloomTokenizerFast.from_pretrained('bigscience/bloom')
-#tokenizer = AutoTokenizer.from_pretrained('bigscience/bloom')
+
 config = LoraConfig(
     r=LORA_R,
     lora_alpha=LORA_ALPHA,
-    #target_modules=TARGET_MODULES,
     lora_dropout=LORA_DROPOUT,
     bias="none",
     task_type="CAUSAL_LM",
@@ -215,7 +214,9 @@ model.state_dict = (
 if torch.__version__ >= "2" and sys.platform != 'win32':
     model = torch.compile(model)
 
-trainer.train(resume_from_checkpoint = True)
+# If you want to resume a training phase, please choose 'True'
+# Else choose 'False'
+trainer.train(resume_from_checkpoint = True) '
 
 model.save_pretrained(OUTPUT_DIR)
 
