@@ -7,11 +7,16 @@ assert (
     "LlamaTokenizer" in transformers._import_structure["models.llama"]
 ), "LLaMA is now in HuggingFace's main branch.\nPlease reinstall it: pip uninstall transformers && pip install git+https://github.com/huggingface/transformers.git"
 from transformers import LlamaTokenizer, LlamaForCausalLM, GenerationConfig
+from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer, BloomForCausalLM
+from transformers.models.opt.modeling_opt import OPTDecoderLayer
 
-tokenizer = LlamaTokenizer.from_pretrained("decapoda-research/llama-7b-hf")
+tokenizer = AutoTokenizer.from_pretrained('bigscience/bloom')
+#tokenizer = LlamaTokenizer.from_pretrained("decapoda-research/llama-7b-hf")
 
-BASE_MODEL = "decapoda-research/llama-7b-hf"
-LORA_WEIGHTS = "tloen/alpaca-lora-7b"
+BASE_MODEL = "bigscience/bloom-560m"
+#BASE_MODEL = "decapoda-research/llama-7b-hf"
+LORA_WEIGHTS = "XXX/bloom-560m-lora"
+#LORA_WEIGHTS = "tloen/alpaca-lora-7b"
 
 if torch.cuda.is_available():
     device = "cuda"
@@ -25,7 +30,7 @@ except:
     pass
 
 if device == "cuda":
-    model = LlamaForCausalLM.from_pretrained(
+    model = BloomForCausalLM.from_pretrained(
         BASE_MODEL,
         load_in_8bit=True,
         torch_dtype=torch.float16,
@@ -33,7 +38,7 @@ if device == "cuda":
     )
     model = PeftModel.from_pretrained(model, LORA_WEIGHTS, torch_dtype=torch.float16)
 elif device == "mps":
-    model = LlamaForCausalLM.from_pretrained(
+    model = BloomForCausalLM.from_pretrained(
         BASE_MODEL,
         device_map={"": device},
         torch_dtype=torch.float16,
@@ -45,7 +50,7 @@ elif device == "mps":
         torch_dtype=torch.float16,
     )
 else:
-    model = LlamaForCausalLM.from_pretrained(
+    model = BloomForCausalLM.from_pretrained(
         BASE_MODEL, device_map={"": device}, low_cpu_mem_usage=True
     )
     model = PeftModel.from_pretrained(
