@@ -21,7 +21,7 @@ from peft import (
 )
 
 
-# optimized for RTX 4090. for larger GPUs, increase some of these?
+# optimized for RTX 3090 and A100. for larger GPUs, increase some of these?
 MICRO_BATCH_SIZE = 4  # this could actually be 5 but i like powers of 2
 BATCH_SIZE = 128
 GRADIENT_ACCUMULATION_STEPS = BATCH_SIZE // MICRO_BATCH_SIZE
@@ -38,30 +38,15 @@ TARGET_MODULES = [
 ]
 DATA_PATH = "alpaca_data_cleaned.json"
 
-#model = LlamaForCausalLM.from_pretrained(
-#    "decapoda-research/llama-7b-hf",
-#    load_in_8bit=True,
-#    device_map="auto",
-#)
+model_name = "bigscience/bloom-560m"
+#model_name = "bigscience/bloom-1b1"
+#model_name = "bigscience/bloom-1b7"
+#model_name = "bigscience/bloom-3b"
+#model_name = "bigscience/bloom-7b1"
+#model_name = "bigscience/bloom" # for 176B parameters
 
-#tokenizer = LlamaTokenizer.from_pretrained(
-#    "decapoda-research/llama-7b-hf", add_eos_token=True
-#)
-
-#model = AutoModelForCausalLM.from_pretrained(
-    #'bigscience/bloom',
-    #device_map='auto',
-    #load_in_8bit=True,
-    #)
-
-model = BloomForCausalLM.from_pretrained( #AutoModelForCausalLM.from_pretrained(
-    #'bigscience/bloom',
-    "bigscience/bloom-560m",
-    # "bigscience/bloom-1b1",
-    # "bigscience/bloom-1b7",
-    # "bigscience/bloom-3b",
-    # "bigscience/bloom-7b1",
-    # "bigscience/bloom", # for 176B parameters
+model = BloomForCausalLM.from_pretrained( 
+    model_name,
     device_map='auto',
     load_in_8bit=True,
 )
@@ -197,7 +182,7 @@ trainer = transformers.Trainer(
         save_strategy="steps",
         eval_steps=200,
         save_steps=200,
-        output_dir="lora-alpaca",
+        output_dir="BLOOM-alpaca",
         save_total_limit=3,
         load_best_model_at_end=True,
         ddp_find_unused_parameters=False if ddp else None,
@@ -214,8 +199,8 @@ model.state_dict = (
 if torch.__version__ >= "2":
     model = torch.compile(model)
 
-trainer.train()
+trainer.train(resume_from_checkpoint = True) #if resume, choose True, else False
 
-model.save_pretrained("lora-alpaca")
+model.save_pretrained("BLOOM-alpaca")
 
 print("\n If there's a warning about missing keys above, please disregard :)")
