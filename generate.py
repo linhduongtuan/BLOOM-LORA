@@ -145,7 +145,7 @@ gr.Interface(
 
 # Old testing code follows.
 
-"""
+
 if __name__ == "__main__":
     # testing code for readme
     for instruction in [
@@ -162,4 +162,4 @@ if __name__ == "__main__":
         print("Instruction:", instruction)
         print("Response:", evaluate(instruction))
         print()
-"""
+
