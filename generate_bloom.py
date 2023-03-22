@@ -10,7 +10,7 @@ tokenizer = AutoTokenizer.from_pretrained('bigscience/bloom')
 
 BASE_MODEL = "bigscience/bloom-560m"
 
-LORA_WEIGHTS = "XXX/bloom-560m-lora"
+LORA_WEIGHTS = "Kukady/bloom-560m-lora"
 
 if torch.cuda.is_available():
     device = "cuda"
