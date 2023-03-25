@@ -57,7 +57,7 @@ or [alpaca.cpp](https://github.com/antimatter15/alpaca.cpp).
 
 In addition to `alpaca_data.json`, which contains the original Stanford Alpaca dataset,
 we also include `alpaca_data_cleaned.json`, which has been [stripped of various tokenization artifacts](https://github.com/tloen/alpaca-lora/pull/32)
-with the help of @gururise.
+with the help of @gururise and refer his [repository at here](https://github.com/gururise/AlpacaDataCleaned).
 This file is now used by default in the training script.
 
 @AndriyMulyar has also provided interactive, embedding-based visualizations of the original dataset's [instructions](https://atlas.nomic.ai/map/alpaca_instructions)
@@ -226,7 +226,7 @@ for i in range(2,10):
 **Instruction**: Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.
 
 **BLOOM-7b1-LoRA**: 
-```
+```python
 def print_numbers(num):
     if num % 3 == 0:
         print('Fizz')
