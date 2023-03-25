@@ -83,7 +83,7 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 **Instruction**: Tell me about alpacas.
 
-**BLOOM-560M-LoRA**:
+**BLOOM-7b1-LoRA**: Alpacas are native to the Andes Mountains of South America, where they have been domesticated for thousands of years. They are known for their long, fluffy coats, which are used to make clothing, rugs, and other accessories. Alpacas are also known for their gentle temperament, which makes them a popular pet and companion animal.
 
 **Alpaca-LoRA**: Alpacas are members of the camelid family and are native to the Andes Mountains of South America. They are known for their soft, luxurious fleece, which is used to make clothing, blankets, and other items. Alpacas are herbivores and graze on grasses and other plants. They are social animals and live in herds of up to 20 individuals.
 
@@ -95,7 +95,7 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 **Instruction**: Tell me about the president of Mexico in 2019.
 
-**BLOOM-560M-LoRA**:
+**BLOOM-7b1-LoRA**: The president of Mexico in 2019 is Andrés Manuel López Obrador. He was elected in 2018 and took office in December of that year. López Obrador is known for his populist style of government and his support for social programs such as free health care and free education. He is also known for his opposition to the United States and its policies in Latin America. López Obrador has also been criticized for his lack of experience in government and his inability to govern effectively. Despite these criticisms, López Obrador has been able to gain the support of the majority of Mexicans and has been able to implement many of his policies.
 
 **Alpaca-LoRA**: The president of Mexico in 2019 was Andrés Manuel López Obrador, who took office on December 1, 2018. He is a member of the National Regeneration Movement (MORENA) political party and is the first left-wing president of Mexico since 1946. He is known for his anti-corruption and anti-neoliberal policies, as well as his commitment to improving the living conditions of the Mexican people.
 
@@ -107,7 +107,7 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 **Instruction**: Tell me about the king of France in 2019.
 
-**BLOOM-560M-LoRA**:
+**BLOOM-7b1-LoRA**: The king of France in 2019 is Emmanuel Macron. Macron was elected as the president of France in May 2017. He is the first president of France to come from outside the traditional political elite. Macron is a former banker and a member of the Socialist Party. He has been a member of the European Parliament since 2014 and has been a member of the Socialist Group in the European Parliament since 2015.
 
 **Alpaca-LoRA**: The King of France in 2019 is Emmanuel Macron, who was elected in May 2017. He is the youngest president in the history of the Fifth Republic and the first president to be born after World War II. He is also the first president to have never held elected office before.
 
@@ -119,7 +119,7 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 **Instruction**: List all Canadian provinces in alphabetical order.
 
-**BLOOM-560M-LoRA**:
+**BLOOM-7b1-LoRA**: Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland and Labrador, Nova Scotia, Northwest Territories, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan, Southwest Territories, Yukon, British Columbia, Alberta, Manitoba, New Brunswick, Newfoundland and Labrador, Nova Scotia, Northwest Territories, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan, Southwest Territories, Yukon, British Columbia, Alberta, Manitoba, New Brunswick, Newfoundland and Labrador, Nova Scotia, Northwest Territories, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan
 
 **Alpaca-LoRA**: Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland and Labrador, Nova Scotia, Ontario, Prince Edward Island, Quebec, Saskatchewan
 
@@ -145,7 +145,31 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 **Instruction**: Write a Python program that prints the first 10 Fibonacci numbers.
 
-**BLOOM-560M-LoRA**:
+**BLOOM-7b1-LoRA**:
+```
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+for i in range(10):
+    print(fibonacci(i))
+
+# Output:
+# 0
+# 1
+# 1
+# 2
+# 3
+# 5
+# 8
+# 13
+# 21
+# 34
+```
 
 **Alpaca-LoRA**:
 
@@ -201,7 +225,31 @@ for i in range(2,10):
 
 **Instruction**: Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.
 
-**BLOOM-560M-LoRA**:
+**BLOOM-7b1-LoRA**: 
+```
+def print_numbers(num):
+    if num % 3 == 0:
+        print('Fizz')
+    elif num % 5 == 0:
+        print('Buzz')
+    else:
+        print(num)
+
+print_numbers(1)
+print_numbers(2)
+print_numbers(3)
+print_numbers(4)
+print_numbers(5)
+print_numbers(6)
+print_numbers(7)
+print_numbers(8)
+print_numbers(9)
+print_numbers(10)
+print_numbers(11)
+print_numbers(12)
+print_numbers(13)
+print_numbers(14)
+```
 
 **Alpaca-LoRA**:
 
@@ -251,7 +299,9 @@ for (let i = 1; i <= 100; i++) {
 
 **Instruction**: Tell me five words that rhyme with 'shock'.
 
-**BLOOM-560M-LoRA**:
+**BLOOM-7b1-LoRA**:
+The five words that rhyme with "shock" are:
+Shock, shock, shock, shock, shock
 
 **Alpaca-LoRA**: Flock, lock, rock, stock, and sock.
 
@@ -269,7 +319,7 @@ for (let i = 1; i <= 100; i++) {
 
 **Instruction**: Translate the sentence 'I have no mouth but I must scream' into Spanish.
 
-**BLOOM-560M-LoRA**:
+**BLOOM-7b1-LoRA**: Yo no tengo boca pero debo gritar
 
 **Alpaca-LoRA**: No tengo boca pero tengo que gritar.
 
