@@ -74,13 +74,6 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 ### Example outputs
 
 
-**BLOOM-560M-LoRA**:
-
-
-
-
-
-
 
 
 **Instruction**: Tell me about alpacas.
