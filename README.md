@@ -146,8 +146,8 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 **Instruction**: Write a Python program that prints the first 10 Fibonacci numbers.
 
 **BLOOM-7b1-LoRA**:
-```
-def fibonacci(n):
+
+```def fibonacci(n):
     if n == 0:
         return 0
     elif n == 1:
