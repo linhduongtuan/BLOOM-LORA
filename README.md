@@ -74,11 +74,17 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 ### Example outputs
 
 
-
-
 **Instruction**: Tell me about alpacas.
 
 **BLOOM-7b1-LoRA**: Alpacas are native to the Andes Mountains of South America, where they have been domesticated for thousands of years. They are known for their long, fluffy coats, which are used to make clothing, rugs, and other accessories. Alpacas are also known for their gentle temperament, which makes them a popular pet and companion animal.
+
+**ChatGPT (free version dated March 25^th 2023)**: Alpacas are domesticated South American camelids, closely related to llamas, vicuñas, and guanacos. They are native to the Andes Mountains of Peru, Bolivia, Chile, and Argentina, where they have been raised for thousands of years for their fiber, meat, and as pack animals.
+
+Alpacas are smaller than llamas, standing about 3 feet tall at the shoulder and weighing between 100 and 200 pounds. They have long, soft, and silky fibers that grow from their skin, which are highly prized for their quality and used in the production of textiles and clothing. Alpaca fiber comes in a range of natural colors, including white, black, brown, and gray, and can be spun into yarn or blended with other fibers to create a variety of fabrics.
+
+Alpacas are social animals that typically live in herds, with one dominant male (or "stud") and several females. They are generally gentle and easy to handle, making them popular as pets and for use in therapy programs. Alpacas are also used for their meat, which is considered a delicacy in some countries.
+
+Overall, alpacas are valued for their fiber, meat, and as pack animals, as well as for their gentle nature and unique appearance. They are becoming increasingly popular in many parts of the world as a source of sustainable and eco-friendly fiber and as a unique addition to farms and ranches.
 
 **Alpaca-LoRA**: Alpacas are members of the camelid family and are native to the Andes Mountains of South America. They are known for their soft, luxurious fleece, which is used to make clothing, blankets, and other items. Alpacas are herbivores and graze on grasses and other plants. They are social animals and live in herds of up to 20 individuals.
 
@@ -92,6 +98,10 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 **BLOOM-7b1-LoRA**: The president of Mexico in 2019 is Andrés Manuel López Obrador. He was elected in 2018 and took office in December of that year. López Obrador is known for his populist style of government and his support for social programs such as free health care and free education. He is also known for his opposition to the United States and its policies in Latin America. López Obrador has also been criticized for his lack of experience in government and his inability to govern effectively. Despite these criticisms, López Obrador has been able to gain the support of the majority of Mexicans and has been able to implement many of his policies.
 
+**ChatGPT (free version dated March 25^th 2023)**: The President of Mexico in 2019 was Andrés Manuel López Obrador. He took office on December 1, 2018, after winning the presidential election held on July 1, 2018, with a large majority of the vote. López Obrador is a leftist politician who previously served as the Mayor of Mexico City from 2000 to 2005 and founded the National Regeneration Movement (MORENA) party in 2014.
+
+As president, López Obrador has pursued an agenda focused on fighting corruption, reducing poverty, and improving social welfare programs. He has also taken steps to reduce violence and improve security in the country, particularly in response to the ongoing drug war and related crime. López Obrador's administration has also sought to strengthen Mexico's economic ties with the United States and other countries, while also promoting greater economic self-sufficiency and development within Mexico.
+
 **Alpaca-LoRA**: The president of Mexico in 2019 was Andrés Manuel López Obrador, who took office on December 1, 2018. He is a member of the National Regeneration Movement (MORENA) political party and is the first left-wing president of Mexico since 1946. He is known for his anti-corruption and anti-neoliberal policies, as well as his commitment to improving the living conditions of the Mexican people.
 
 **Stanford Alpaca**: In 2019, Andres Manuel Lopez Obrador was sworn in as President of Mexico. He is the country’s 58th president and the first from the left-wing Morena party. He was elected in 2018 on a promise to combat corruption and reduce poverty and has faced criticism for his handling of the economy, crime and the country’s relationship with the United States. He is also known for his ambitious social welfare programs and has been praised for raising the minimum wage and providing aid to low-income families. He is seen as a champion of democracy and human rights in Mexico.
@@ -104,6 +114,8 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 **BLOOM-7b1-LoRA**: The king of France in 2019 is Emmanuel Macron. Macron was elected as the president of France in May 2017. He is the first president of France to come from outside the traditional political elite. Macron is a former banker and a member of the Socialist Party. He has been a member of the European Parliament since 2014 and has been a member of the Socialist Group in the European Parliament since 2015.
 
+**ChatGPT (free version dated March 25^th 2023)**: I'm sorry, but there is no king of France in 2019 or any recent year. France is a republic with a President as the head of state, not a monarchy with a king or queen. The last French king, Louis Philippe I, abdicated in 1848 and the country became a republic. Since then, France has had several different forms of government, including two empires, but has not had a monarch as head of state. As of 2019, the President of France was Emmanuel Macron.
+
 **Alpaca-LoRA**: The King of France in 2019 is Emmanuel Macron, who was elected in May 2017. He is the youngest president in the history of the Fifth Republic and the first president to be born after World War II. He is also the first president to have never held elected office before.
 
 **Stanford Alpaca**: In 2019, the King of France was Emmanuel Macron. He was sworn in as President of France on May 14, 2017, and has been leading the country ever since. He is a member of the centrist La République En Marche! Party. He is known for his reformist agenda and has faced a number of protests from both the right and left of the political spectrum. He is the youngest French president in history.
@@ -115,6 +127,23 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 **Instruction**: List all Canadian provinces in alphabetical order.
 
 **BLOOM-7b1-LoRA**: Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland and Labrador, Nova Scotia, Northwest Territories, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan, Southwest Territories, Yukon, British Columbia, Alberta, Manitoba, New Brunswick, Newfoundland and Labrador, Nova Scotia, Northwest Territories, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan, Southwest Territories, Yukon, British Columbia, Alberta, Manitoba, New Brunswick, Newfoundland and Labrador, Nova Scotia, Northwest Territories, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan
+
+**ChatGPT (free version dated March 25^th 2023)**:
+Alberta
+British Columbia
+Manitoba
+New Brunswick
+Newfoundland and Labrador
+Northwest Territories
+Nova Scotia
+Nunavut
+Ontario
+Prince Edward Island
+Quebec
+Saskatchewan
+Yukon
+Note that this list includes all ten provinces and three territories that make up Canada.
+
 
 **Alpaca-LoRA**: Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland and Labrador, Nova Scotia, Ontario, Prince Edward Island, Quebec, Saskatchewan
 
@@ -166,6 +195,32 @@ for i in range(10):
 # 21
 # 34
 ```
+
+**ChatGPT (free version dated March 25^th 2023)**: In this program, we initialize the first two Fibonacci numbers (a and b) to 0 and 1, respectively. We also initialize a counter variable (count) to 0.
+
+We then use a while loop to print the first 10 Fibonacci numbers. The loop continues as long as the count variable is less than 10. Inside the loop, we print the current value of a, and then update the values of a and b using the standard Fibonacci sequence formula (a, b = b, a + b). Finally, we increment the count variable by 1.
+
+This program should output the following:
+```python
+a, b = 0, 1
+count = 0
+
+while count < 10:
+    print(a)
+    a, b = b, a + b
+    count += 1
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+```
+
 
 **Alpaca-LoRA**:
 
@@ -221,7 +276,7 @@ for i in range(2,10):
 
 **Instruction**: Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.
 
-**BLOOM-7b1-LoRA**: 
+**BLOOM-7b1-LoRA**: This program uses a for loop to iterate over the range of numbers from 1 to 100. For each number, it uses conditional statements (if/elif/else) to determine whether it is a multiple of 3, 5, both, or neither. If it is a multiple of 3, it prints "Fizz". If it is a multiple of 5, it prints "Buzz". If it is a multiple of both 3 and 5, it prints "FizzBuzz". If it is not a multiple of either 3 or 5, it prints the number itself.
 ```python
 def print_numbers(num):
     if num % 3 == 0:
@@ -245,6 +300,19 @@ print_numbers(11)
 print_numbers(12)
 print_numbers(13)
 print_numbers(14)
+```
+
+**ChatGPT (free version dated March 25^th 2023)**:
+```python
+for num in range(1, 101):
+    if num % 3 == 0 and num % 5 == 0:
+        print("FizzBuzz")
+    elif num % 3 == 0:
+        print("Fizz")
+    elif num % 5 == 0:
+        print("Buzz")
+    else:
+        print(num)
 ```
 
 **Alpaca-LoRA**:
@@ -299,6 +367,8 @@ for (let i = 1; i <= 100; i++) {
 The five words that rhyme with "shock" are:
 Shock, shock, shock, shock, shock
 
+**ChatGPT (free version dated March 25^th 2023)**: dock, lock, mock, rock, sock
+
 **Alpaca-LoRA**: Flock, lock, rock, stock, and sock.
 
 **Stanford Alpaca**: Five words that rhyme with shock are: rock, pop, shock, cook, and snock.
@@ -316,6 +386,8 @@ Shock, shock, shock, shock, shock
 **Instruction**: Translate the sentence 'I have no mouth but I must scream' into Spanish.
 
 **BLOOM-7b1-LoRA**: Yo no tengo boca pero debo gritar
+
+**ChatGPT (free version dated March 25^th 2023)**: No tengo boca pero debo gritar
 
 **Alpaca-LoRA**: No tengo boca pero tengo que gritar.
 
