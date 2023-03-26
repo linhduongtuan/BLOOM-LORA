@@ -8,9 +8,9 @@ from transformers.models.opt.modeling_opt import OPTDecoderLayer
 
 tokenizer = AutoTokenizer.from_pretrained('bigscience/bloom')
 
-BASE_MODEL = "bigscience/bloom-560m"
+BASE_MODEL = "bigscience/bloom-7b1"
 
-LORA_WEIGHTS = "Kukady/bloom-560m-lora"
+LORA_WEIGHTS = "LinhDuong/bloom-7b1-lora"
 
 if torch.cuda.is_available():
     device = "cuda"
