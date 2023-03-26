@@ -62,7 +62,7 @@ or [alpaca.cpp](https://github.com/antimatter15/alpaca.cpp).
 ### Dataset
 
 In addition to `alpaca_data.json`, which contains the original Stanford Alpaca dataset,
-we also include `alpaca_data_cleaned.json`, which has been [stripped of various tokenization artifacts](https://github.com/tloen/alpaca-lora/pull/32)
+we also include [`alpaca_data_cleaned.json`](https://github.com/gururise/AlpacaDataCleaned), which has been [stripped of various tokenization artifacts](https://github.com/tloen/alpaca-lora/pull/32)
 with the help of @gururise and refer his [repository at here](https://github.com/gururise/AlpacaDataCleaned).
 This file is now used by default in the training script.
 
