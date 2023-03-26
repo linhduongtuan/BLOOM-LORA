@@ -35,9 +35,13 @@ pip install -r requirements.txt
 
 2. If bitsandbytes doesn't work, [install it from source.](https://github.com/TimDettmers/bitsandbytes/blob/main/compile_from_source.md) Windows users can follow [these instructions](https://github.com/tloen/alpaca-lora/issues/17).
 
-### Inference (`generate.py`)
+### Inference (`generate_alpaca.py`) for LLaMA ~ Alpaca models
 
 This file reads the foundation model from the Hugging Face model hub and the LoRA weights from `tloen/alpaca-lora-7b`, and runs a Gradio interface for inference on a specified input. Users should treat this as example code for the use of the model, and modify it as needed.
+
+### Otherwise, Inference (`generate_bloom.py`) for BLOOM-7b1 model
+
+This file reads the foundation model from the Hugging Face model hub and the LoRA weights from `LinhDuong/bloom-7b1-alpaca`, and runs a Gradio interface for inference on a specified input. Users should treat this as example code for the use of the model, and modify it as needed.
 
 ### If you want to finetune LLaMA, please use (`finetune.py`) for the original [Alpaca-LoRA](https://github.com/tloen/alpaca-lora) to train these models
 ### Otherwise, using ('train.py') for our BLOOM-LoRA
