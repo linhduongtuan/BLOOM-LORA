@@ -1,7 +1,7 @@
 ![alt text](https://huggingface.co/blog/assets/86_bloom_megatron_deepspeed/bloom-banner.png)
 ## 🌲🤏 BLOOM-LoRA: Low-Rank LLaMA Instruct-Tuning
 
-**Why do we try to finetune these BLOOM models? The major reason is the licence of LLaMA, while the BLOOM licence seems to be more relax!**
+**Why do we try to finetune these BLOOM models? The major reason is the licence of LLaMA, while the BLOOM licence seems to be more relax! Moreover, BLOOM models were trained on the dataset having [59 Languages (46 natural and 13 programing languages](https://huggingface.co/bigscience/bloom) instead of [around 20 languages](https://github.com/facebookresearch/llama/blob/main/MODEL_CARD.md) in LLaMA. Especially, BLOOM models were trained ond the dataset including [2.7% Vietnamese (~8^th)](https://huggingface.co/bigscience/bloom)**
 
 We try to reimplemt BLOOM-LoRA using a variety of sources such as [the original LLaMA](https://github.com/facebookresearch/llama), [Stanford-Alpaca](https://github.com/tatsu-lab/stanford_alpaca), [Alpaca-LoRA](https://github.com/tloen/alpaca-lora), [BLOOMZ](https://github.com/NouamaneTazi/bloomz.cpp), and a name to few.
 
