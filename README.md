@@ -15,7 +15,7 @@ This repository contains code for reproducing the [Stanford Alpaca](https://gith
 We provide an Instruct model of similar quality to `text-davinci-003` that can run [on a Raspberry Pi](https://twitter.com/miolini/status/1634982361757790209) (for research),
 and the code can be easily extended to the `1b1`, `3b`, 7b1, and `175b` models.
 
-In addition to the training code, which runs within five hours on a single RTX 4090, and A100
+In addition to the training code, which runs within five hours on a single RTX 4090, and A100, or a bit longer with 3090.
 we publish a script for downloading and inference on the foundation model and LoRA,
 as well as the resulting [LoRA weights themselves](https://huggingface.co/linhduongtuan/bloom-lora-560m/tree/main).
 To fine-tune cheaply and efficiently, we use Hugging Face's [PEFT](https://github.com/huggingface/peft)
