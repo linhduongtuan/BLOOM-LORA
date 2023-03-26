@@ -13,7 +13,7 @@ _**Update 2023-03-21:** weights have been updated with cleaned data and prompts 
 
 This repository contains code for reproducing the [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) results using [low-rank adaptation (LoRA)](https://arxiv.org/pdf/2106.09685.pdf).
 We provide an Instruct model of similar quality to `text-davinci-003` that can run [on a Raspberry Pi](https://twitter.com/miolini/status/1634982361757790209) (for research),
-and the code can be easily extended to the `1b1`, `3b`, 7b1, and `175b` models.
+and the code can be easily extended to the `1b1`, `3b`, `7b1`, and `175b` models.
 
 In addition to the training code, which runs within five hours on a single RTX 4090, or a bit longer with 3090.
 we publish a script for downloading and inference on the foundation model and LoRA,
