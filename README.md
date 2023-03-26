@@ -5,9 +5,9 @@
 
 We try to reimplemt BLOOM-LoRA using a variety of sources such as [the original LLaMA](https://github.com/facebookresearch/llama), [Stanford-Alpaca](https://github.com/tatsu-lab/stanford_alpaca), [Alpaca-LoRA](https://github.com/tloen/alpaca-lora), [BLOOMZ](https://github.com/NouamaneTazi/bloomz.cpp), and a name to few.
 
-**Try the pretrained model out on Colab [here](https://colab.research.google.com/drive/1LY5Ds6qyr_Drpp9WSdt-ZEMvvrFICdEx#scrollTo=VucO3HSMoJkz)! We will release them soon!!!!**
+**Try the pretrained model out on Colab [here](https://colab.research.google.com/drive/1LY5Ds6qyr_Drpp9WSdt-ZEMvvrFICdEx#scrollTo=VucO3HSMoJkz)!**
 
-_**Update 2023-03-25:** weights have been updated with cleaned data and prompts masked out in the loss. This should reduce the number of template artifacts in outputs. Additionally, we will publicly release our trained weights for these finetuned models at HuggingFace Hub with the addresse `'LinhDuong/bloom-7b1-alpaca'`**_
+_**Update 2023-03-25:** weights have been updated with cleaned data and prompts masked out in the loss. This should reduce the number of template artifacts in outputs. Additionally, we will publicly release our trained weights for these finetuned models at HuggingFace Hub with the addresse `'LinhDuong/bloom-7b1-alpaca'`_
 
 _**Update 2023-03-21:** weights have been updated with cleaned data and prompts masked out in the loss. This should reduce the number of template artifacts in outputs._
 
