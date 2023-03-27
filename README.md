@@ -7,6 +7,10 @@ We try to reimplemt BLOOM-LoRA using a variety of sources such as [the original 
 
 **Try our finetuned BLOOM-b71-alpaca model out on Colab [here](https://colab.research.google.com/drive/1LY5Ds6qyr_Drpp9WSdt-ZEMvvrFICdEx#scrollTo=VucO3HSMoJkz)!!!!!**
 
+
+_**Update 2023-03-27:** weights have been updated with the CodeAlpaca-20k dataset from [sahil2801/CodeAlpaca-20k](https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k). This should intensify this ability of BLOOM-7b1 for generating programming languages, even BLOOM-7b1 has alread trained on datasets containing 13 programming languages. Additionally, we will publicly release our trained weights for these finetuned models at HuggingFace Hub with the addresse `'LinhDuong/bloom-7b1-lora-codealpaca20k'`_
+
+
 _**Update 2023-03-25:** weights have been updated with cleaned data and prompts masked out in the loss. This should reduce the number of template artifacts in outputs. Additionally, we will publicly release our trained weights for these finetuned models at HuggingFace Hub with the addresse `'LinhDuong/bloom-7b1-alpaca'`_
 
 _**Update 2023-03-21:** weights have been updated with cleaned data and prompts masked out in the loss. This should reduce the number of template artifacts in outputs._
