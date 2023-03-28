@@ -3,9 +3,9 @@
 
 **Why do we try to finetune these BLOOM models? The major reason is the licence of LLaMA, while the BLOOM licence seems to be more relax! Moreover, BLOOM models were trained on the dataset having [59 Languages (46 natural and 13 programing languages](https://huggingface.co/bigscience/bloom) instead of [around 20 languages](https://github.com/facebookresearch/llama/blob/main/MODEL_CARD.md) in LLaMA. Especially, BLOOM models were trained ond the dataset including [2.7% Vietnamese (~8^th)](https://huggingface.co/bigscience/bloom)**
 
-We try to reimplemt BLOOM-LoRA using a variety of sources such as [the original LLaMA](https://github.com/facebookresearch/llama), [Stanford-Alpaca](https://github.com/tatsu-lab/stanford_alpaca), [Alpaca-LoRA](https://github.com/tloen/alpaca-lora), [BLOOMZ](https://github.com/NouamaneTazi/bloomz.cpp), and a name to few.
+We try to reimplemt BLOOM-LoRA using a variety of sources such as [the original LLaMA](https://github.com/facebookresearch/llama), [Stanford-Alpaca](https://github.com/tatsu-lab/stanford_alpaca), [Alpaca-LoRA](https://github.com/tloen/alpaca-lora), [BLOOMZ](https://github.com/NouamaneTazi/bloomz.cpp), and a name to few. These datasets for finetuning tasks can be found [here](https://github.com/linhduongtuan/BLOOM-LORA/tree/main/data) or [my HuggingFace Hub for large ones](https://huggingface.co/LinhDuong)
 
-**Try our finetuned BLOOM-b71-alpaca model out on Colab [here](https://colab.research.google.com/drive/1LY5Ds6qyr_Drpp9WSdt-ZEMvvrFICdEx#scrollTo=VucO3HSMoJkz)!!!!!**
+**For example, you can try our finetuned BLOOM-b71-alpaca model out on Colab [here](https://colab.research.google.com/drive/1LY5Ds6qyr_Drpp9WSdt-ZEMvvrFICdEx#scrollTo=VucO3HSMoJkz)!!!!!**
 
 
 _**Update 2023-03-27:** weights have been updated with the CodeAlpaca-20k dataset from [sahil2801/CodeAlpaca-20k](https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k). This should intensify this ability of BLOOM-7b1 for generating programming languages, even BLOOM-7b1 has alread trained on datasets containing 13 programming languages. Additionally, we will publicly release our trained weights for these finetuned models at HuggingFace Hub with the addresse `'LinhDuong/bloom-7b1-lora-codealpaca20k'`_
