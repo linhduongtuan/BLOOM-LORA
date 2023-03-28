@@ -205,6 +205,41 @@ for i in range(10):
 # 34
 ```
 
+
+**BLOOM-7b1-LoRA finetuned with CodeAlpaca dataset**:
+
+```python
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+if __name__ == '__main__':
+    for i in range(10):
+        print(fibonacci(i))
+
+# Output
+# 0
+# 1
+# 2
+# 3
+# 5
+# 8
+# 13
+# 21
+# 34
+# 55
+# 89
+# 144
+# 233
+# 377
+# 610
+```
+
+
 **ChatGPT (free version dated March 25^th 2023)**: In this program, we initialize the first two Fibonacci numbers (a and b) to 0 and 1, respectively. We also initialize a counter variable (count) to 0.
 
 We then use a while loop to print the first 10 Fibonacci numbers. The loop continues as long as the count variable is less than 10. Inside the loop, we print the current value of a, and then update the values of a and b using the standard Fibonacci sequence formula (a, b = b, a + b). Finally, we increment the count variable by 1.
@@ -310,6 +345,50 @@ print_numbers(12)
 print_numbers(13)
 print_numbers(14)
 ```
+
+**BLOOM-7b1-LoRA finetuned with CodeAlpaca dataset**: Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'
+
+
+```python
+def print_numbers():
+    for i in range(1, 101):
+        if i % 3 == 0:
+            print('Fizz')
+        elif i % 5 == 0:
+            print('Buzz')
+        else:
+            print(str(i))
+
+print_numbers()
+
+# Output:
+# Fizz
+# Buzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+# FizzBuzz
+```
+
+
 
 **ChatGPT (free version dated March 25^th 2023)**:
 ```python
