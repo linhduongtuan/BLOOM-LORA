@@ -48,8 +48,8 @@ This file reads the foundation model from the Hugging Face model hub and the LoR
 This file reads the foundation model from the Hugging Face model hub and the LoRA weights from `LinhDuong/bloom-7b1-alpaca`, and runs a Gradio interface for inference on a specified input. Users should treat this as example code for the use of the model, and modify it as needed.
 
 ### If you want to finetune LLaMA, please use (`finetune.py`) for the original [Alpaca-LoRA](https://github.com/tloen/alpaca-lora) to train these models
-### Otherwise, using ('train.py') for our BLOOM-LoRA
-### If you wantr to finetune Bloom-7b1-lora using (CodeAlpaca-20k dataset)[https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k], please using ('train_CodeAlpaca20K.py') for intesifying generative programming languages.
+### If you want to finetune for Bloom-7b1-lora using [alpaca_data_cleaned.json dataset)[https://github.com/gururise/AlpacaDataCleaned/blob/main/alpaca_data_cleaned.json], please use ('train_alpaca.py') for this purpose
+### If you want to finetune Bloom-7b1-lora using (CodeAlpaca-20k dataset)[https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k], please use ('train_CodeAlpaca20K.py') for intesifying generative programming languages.
 
 This file contains a straightforward application of PEFT to the BLOOM-7b1 model,
 as well as some code related to prompt construction and tokenization.
