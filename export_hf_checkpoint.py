@@ -1,20 +1,19 @@
 import os
-import json
 
 import torch
-from peft import PeftModel, LoraConfig
-
 import transformers
+from peft import PeftModel
+from transformers import LlamaForCausalLM, LlamaTokenizer  # noqa: F402
 
+BASE_MODEL = os.environ.get("BASE_MODEL", None)
 assert (
-    "LlamaTokenizer" in transformers._import_structure["models.llama"]
-), "LLaMA is now in HuggingFace's main branch.\nPlease reinstall it: pip uninstall transformers && pip install git+https://github.com/huggingface/transformers.git"
-from transformers import LlamaTokenizer, LlamaForCausalLM
+    BASE_MODEL
+), "Please specify a value for BASE_MODEL environment variable, e.g. `export BASE_MODEL=decapoda-research/llama-7b-hf`"  # noqa: E501
 
-tokenizer = LlamaTokenizer.from_pretrained("decapoda-research/llama-7b-hf")
+tokenizer = LlamaTokenizer.from_pretrained(BASE_MODEL)
 
 base_model = LlamaForCausalLM.from_pretrained(
-    "decapoda-research/llama-7b-hf",
+    BASE_MODEL,
     load_in_8bit=False,
     torch_dtype=torch.float16,
     device_map={"": "cpu"},
@@ -30,7 +29,9 @@ lora_model = PeftModel.from_pretrained(
     torch_dtype=torch.float16,
 )
 
-lora_weight = lora_model.base_model.model.model.layers[0].self_attn.q_proj.weight
+lora_weight = lora_model.base_model.model.model.layers[
+    0
+].self_attn.q_proj.weight
 
 assert torch.allclose(first_weight_old, first_weight)
 
