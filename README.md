@@ -48,6 +48,8 @@ pip install -r requirements.txt
 
 2. If bitsandbytes doesn't work, [install it from source.](https://github.com/TimDettmers/bitsandbytes/blob/main/compile_from_source.md) Windows users can follow [these instructions](https://github.com/tloen/alpaca-lora/issues/17).
 
+</details>
+
 <details><summary>HOW TO INFERENCE?</summary>
 ### Inference (`generate_alpaca.py`) for LLaMA ~ Alpaca models
 
