@@ -63,8 +63,8 @@ This file reads the foundation model from the Hugging Face model hub and the LoR
 
 <details><summary>HOW TO FINETUNE?</summary>
 
-### If you want to finetune LLaMA, please use (`finetune.py`) for the original [Alpaca-LoRA](https://github.com/tloen/alpaca-lora) to train these models
-### If you want to finetune for Bloom-7b1-lora using [alpaca_data_cleaned.json dataset)[https://github.com/gururise/AlpacaDataCleaned/blob/main/alpaca_data_cleaned.json], please use ('train_alpaca.py') for this purpose
+If you want to finetune LLaMA, please use (`finetune.py`) for the original [Alpaca-LoRA](https://github.com/tloen/alpaca-lora) to train these models
+If you want to finetune for Bloom-7b1-lora using [alpaca_data_cleaned.json dataset)[https://github.com/gururise/AlpacaDataCleaned/blob/main/alpaca_data_cleaned.json], please use ('train_alpaca.py') for this purpose
 ### If you want to finetune Bloom-7b1-lora using (CodeAlpaca-20k dataset)[https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k], please use ('train_CodeAlpaca20K.py') for intesifying generative programming languages.
 
 This file contains a straightforward application of PEFT to the BLOOM-7b1 model,
