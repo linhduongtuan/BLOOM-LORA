@@ -23,6 +23,8 @@ Without hyperparameter tuning or validation-based checkpointing, the LoRA model 
 
 For discussion and support, users have created a dedicated Twitter server [here](https://twitter.com/DuongTuanLinh1).
 
+</details>
+
 <details><summary>UPDATE TIMELINE</summary>
 
 _**Update 2023-03-27:** weights have been updated with the CodeAlpaca-20k dataset from [sahil2801/CodeAlpaca-20k](https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k). This should intensify this ability of BLOOM-7b1 for generating programming languages, even BLOOM-7b1 has alread trained on datasets containing 13 programming languages. Additionally, we will publicly release our trained weights for these finetuned models at HuggingFace Hub with the addresse `'LinhDuong/bloom-7b1-lora-codealpaca20k'`_
@@ -31,6 +33,8 @@ _**Update 2023-03-27:** weights have been updated with the CodeAlpaca-20k datase
 _**Update 2023-03-25:** weights have been updated with cleaned data and prompts masked out in the loss. This should reduce the number of template artifacts in outputs. Additionally, we will publicly release our trained weights for these finetuned models at HuggingFace Hub with the addresse `'LinhDuong/bloom-7b1-alpaca'`_
 
 _**Update 2023-03-21:** weights have been updated with cleaned data and prompts masked out in the loss. This should reduce the number of template artifacts in outputs._
+
+</details>
 
 <details><summary>HOW TO SETUP?</summary>
 
@@ -53,6 +57,8 @@ This file reads the foundation model from the Hugging Face model hub and the LoR
 
 This file reads the foundation model from the Hugging Face model hub and the LoRA weights from `LinhDuong/bloom-7b1-alpaca`, and runs a Gradio interface for inference on a specified input. Users should treat this as example code for the use of the model, and modify it as needed.
 
+</details>
+
 <details><summary>HOW TO FINETUNE?</summary>
 ### If you want to finetune LLaMA, please use (`finetune.py`) for the original [Alpaca-LoRA](https://github.com/tloen/alpaca-lora) to train these models
 ### If you want to finetune for Bloom-7b1-lora using [alpaca_data_cleaned.json dataset)[https://github.com/gururise/AlpacaDataCleaned/blob/main/alpaca_data_cleaned.json], please use ('train_alpaca.py') for this purpose
@@ -63,6 +69,8 @@ as well as some code related to prompt construction and tokenization.
 Near the top of this file is a set of hardcoded hyperparameters that you should feel free to modify.
 PRs adapting this code to support larger models are always welcome.
 
+</details>
+
 <details><summary>HOW TO EXPORT A CHECKPOINT</summary>
 ### Checkpoint export (`export_*_checkpoint.py`)
 
@@ -71,6 +79,8 @@ for export to Hugging Face format and to PyTorch `state_dicts`.
 They should help users
 who want to run inference in projects like [llama.cpp](https://github.com/ggerganov/llama.cpp)
 or [alpaca.cpp](https://github.com/antimatter15/alpaca.cpp).
+
+</details>
 
 <details><summary>WHERE DATASETS ARE?</summary>
 ### Dataset
@@ -84,11 +94,15 @@ This file is now used by default in the training script.
 and [outputs](https://atlas.nomic.ai/map/alpaca_outputs),
 as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-441c-8d6f-3e6ffbbc2eda/838019ff-8fe2-42ba-809a-d86d2b98cd50/-18.11668742841587/-11.348087116836096/-20.88850316347706/-17.680468640801223/774455612).
 
+</details>
+
 <details><summary>NOTES</summary>
 ### Notes
 
 - We can likely improve our model performance significantly if we combed through the data and fixed bad examples; in fact, dataset quality might be our bottleneck.
 - We're continually fixing bugs and conducting training runs, and the weights on the Hugging Face Hub are being updated accordingly. In particular, those facing issues with response lengths should make sure that they have the latest version of the weights and code.
+
+</details>
 
 <details><summary>ACKNOWLEDGMENT</summary>
 
@@ -96,6 +110,7 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 ### I would like to express my gratitude to [Phenikaa University](https://phenikaa-uni.edu.vn/en) and [Phenikaa-X](https://phenikaa-x.com/) company, without whose support, this fine-tuned model would not have been possible. Their generosity in providing me with access to their computation resources, namely A100 and RTX 4090, allowed me to train and test my work successfully. 
 ### I would also like to extend my thanks to [Pham Ngoc Ninh](https://github.com/phamngocninh), who worked diligently to address any bugs and refine this model. Ninh's assistance was greatly appreciated.
 
+</details>
 
 <details><summary>SOME EXAMPLE OUTPUTS</summary>
 # Example outputs
@@ -119,6 +134,7 @@ Overall, alpacas are valued for their fiber, meat, and as pack animals, as well 
 **Stanford Alpaca**: Alpacas are small, fluffy animals related to camels and llamas. They are native to Peru and Bolivia, and were first domesticated around 5,000 years ago. They are kept mainly for their fine, soft fleece, which is used to make knitwear and other garments. Alpacas are herd animals and live in small family groups, led by an older male. They are highly social animals and can form strong bonds with their owners.
 
 **text-davinci-003**: Alpacas are a domesticated species of South American camelid, similar to llamas. They are native to the Andes Mountains in South America and are kept as livestock for their soft, luxurious wool. Alpacas are social animals and live in herds of up to 20 individuals. They are typically kept in small herds of two to five animals, and are relatively easy to care for. Alpacas are herbivores and feed on grass, hay, and other vegetation. They are also known for their gentle and friendly nature, making them popular as pets.
+</details>
 
 ---
 
@@ -137,6 +153,8 @@ As president, López Obrador has pursued an agenda focused on fighting corruptio
 
 **text-davinci-003**: The president of Mexico in 2019 is Andrés Manuel López Obrador, commonly known as AMLO. He is a Mexican politician who has been the President of Mexico since December 1, 2018. He is a member of the National Regeneration Movement (MORENA) party and previously served as the Head of Government of Mexico City from 2000 to 2005. He is a left-wing populist and has promised to reduce corruption and inequality in Mexico. He has also promised to increase public spending on social programs and infrastructure projects.
 
+</details>
+
 ---
 
 **Instruction**: Tell me about the king of France in 2019.
@@ -152,6 +170,8 @@ As president, López Obrador has pursued an agenda focused on fighting corruptio
 **Stanford Alpaca**: In 2019, the King of France was Emmanuel Macron. He was sworn in as President of France on May 14, 2017, and has been leading the country ever since. He is a member of the centrist La République En Marche! Party. He is known for his reformist agenda and has faced a number of protests from both the right and left of the political spectrum. He is the youngest French president in history.
 
 **text-davinci-003**: The King of France is a largely symbolic role, as France is a republic. The current President of France is Emmanuel Macron, who was elected in 2017.
+
+</details>
 
 ---
 
@@ -198,6 +218,7 @@ Note that this list includes all ten provinces and three territories that make u
 12. Saskatchewan
 13. Yukon
 
+</details>
 ---
 
 **Instruction**: Write a Python program that prints the first 10 Fibonacci numbers.
@@ -340,6 +361,7 @@ for i in range(2,10):
     b = c
     print(c)
 ```
+</details>
 
 ---
 
@@ -472,7 +494,7 @@ for (let i = 1; i <= 100; i++) {
   }
 }
 ```
-
+</details>
 ---
 
 **Instruction**: Tell me five words that rhyme with 'shock'.
@@ -496,7 +518,7 @@ Shock, shock, shock, shock, shock
 3. Dock
 4. Clock
 5. Rock
-
+</details>
 ---
 
 **Instruction**: Translate the sentence 'I have no mouth but I must scream' into Spanish.
@@ -512,3 +534,4 @@ Shock, shock, shock, shock, shock
 **Stanford Alpaca**: No tengo boca, pero debo gritar.
 
 **text-davinci-003**: No tengo boca pero debo gritar.
+</details>
