@@ -38,7 +38,6 @@ _**Update 2023-03-21:** weights have been updated with cleaned data and prompts 
 
 <details><summary>HOW TO SETUP?</summary>
 
-### Setup
 
 1. Install dependencies
 
@@ -51,6 +50,7 @@ pip install -r requirements.txt
 </details>
 
 <details><summary>HOW TO INFERENCE?</summary>
+
 ### Inference (`generate_alpaca.py`) for LLaMA ~ Alpaca models
 
 This file reads the foundation model from the Hugging Face model hub and the LoRA weights from `tloen/alpaca-lora-7b`, and runs a Gradio interface for inference on a specified input. Users should treat this as example code for the use of the model, and modify it as needed.
@@ -62,6 +62,7 @@ This file reads the foundation model from the Hugging Face model hub and the LoR
 </details>
 
 <details><summary>HOW TO FINETUNE?</summary>
+
 ### If you want to finetune LLaMA, please use (`finetune.py`) for the original [Alpaca-LoRA](https://github.com/tloen/alpaca-lora) to train these models
 ### If you want to finetune for Bloom-7b1-lora using [alpaca_data_cleaned.json dataset)[https://github.com/gururise/AlpacaDataCleaned/blob/main/alpaca_data_cleaned.json], please use ('train_alpaca.py') for this purpose
 ### If you want to finetune Bloom-7b1-lora using (CodeAlpaca-20k dataset)[https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k], please use ('train_CodeAlpaca20K.py') for intesifying generative programming languages.
@@ -74,6 +75,7 @@ PRs adapting this code to support larger models are always welcome.
 </details>
 
 <details><summary>HOW TO EXPORT A CHECKPOINT</summary>
+
 ### Checkpoint export (`export_*_checkpoint.py`)
 
 These files contain scripts that merge the LoRA weights back into the base model
@@ -85,6 +87,7 @@ or [alpaca.cpp](https://github.com/antimatter15/alpaca.cpp).
 </details>
 
 <details><summary>WHERE DATASETS ARE?</summary>
+
 ### Dataset
 
 In addition to `alpaca_data.json`, which contains the original Stanford Alpaca dataset,
@@ -99,7 +102,7 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 </details>
 
 <details><summary>NOTES</summary>
-### Notes
+
 
 - We can likely improve our model performance significantly if we combed through the data and fixed bad examples; in fact, dataset quality might be our bottleneck.
 - We're continually fixing bugs and conducting training runs, and the weights on the Hugging Face Hub are being updated accordingly. In particular, those facing issues with response lengths should make sure that they have the latest version of the weights and code.
@@ -108,14 +111,14 @@ as well as [clusters of bad examples](https://atlas.nomic.ai/map/d2139cc3-bc1c-4
 
 <details><summary>ACKNOWLEDGMENT</summary>
 
-# Acknowledgment:
-### I would like to express my gratitude to [Phenikaa University](https://phenikaa-uni.edu.vn/en) and [Phenikaa-X](https://phenikaa-x.com/) company, without whose support, this fine-tuned model would not have been possible. Their generosity in providing me with access to their computation resources, namely A100 and RTX 4090, allowed me to train and test my work successfully. 
-### I would also like to extend my thanks to [Pham Ngoc Ninh](https://github.com/phamngocninh), who worked diligently to address any bugs and refine this model. Ninh's assistance was greatly appreciated.
+
+1) I would like to express my gratitude to [Phenikaa University](https://phenikaa-uni.edu.vn/en) and [Phenikaa-X](https://phenikaa-x.com/) company, without whose support, this fine-tuned model would not have been possible. Their generosity in providing me with access to their computation resources, namely A100 and RTX 4090, allowed me to train and test my work successfully. 
+2) I would also like to extend my thanks to [Pham Ngoc Ninh](https://github.com/phamngocninh), who worked diligently to address any bugs and refine this model. Ninh's assistance was greatly appreciated.
 
 </details>
 
 <details><summary>SOME EXAMPLE OUTPUTS</summary>
-# Example outputs
+
 
 
 **Instruction**: Tell me about alpacas.
