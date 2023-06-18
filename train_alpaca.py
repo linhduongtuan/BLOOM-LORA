@@ -56,7 +56,7 @@ if ddp:
 
 model = BloomForCausalLM.from_pretrained( 
     model_name,
-    device_map='auto',
+    device_map=device_map,
     load_in_8bit=True,
 )
 tokenizer = BloomTokenizerFast.from_pretrained('bigscience/bloom')
